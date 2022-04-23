@@ -39,12 +39,69 @@ Exeple:
 
    	./eggdrop -m <config file>
 
+--------
+
+# Configuration
+
+You will need to edit the configuration file before you can start up your Eggdrop. You can find the example configuration file in the directory you extracted the Eggdrop source to, under the name ‘eggdrop.conf’. If you downloaded Eggdrop to your system, you can unzip the tarball (.tar.gz) file to its own directory using 7-Zip or a similar program, and view the example config file, botchk file, and all the documentation files locally. You can use Notepad to edit these files, although it’s sometimes desirable to use an editor that supports the Unix file format such as EditPlus. To edit the file once it is on your shell, a program such as ‘nano’ or ‘vim’ is recommended.
+
+
+
+# Editing the config file
+
+Eggdrop comes with two versions of the configuration file- eggdrop.conf and eggdrop-basic.conf. While it is recommended that users edit a copy of eggdrop.conf to take advantage of all the features Eggdrop has to offer, using eggdrop-basic.conf to start will be a quicker path for some. Still, it is recommended that you come back to the full config file at some point to see what you are missing.
+
+It is first recommended to rename the sample config to something other than “eggdrop.conf”. Giving it the name of the bot’s nick (e.g. NiceBot.conf) is quite common. In the config file, you set up the IRC servers you want the bot to use and set Eggdrop’s options to suit your needs. Eggdrop has many options to configure, and editing the configuration file can take some time. I recommend you go over the entire config file to ensure the bot will be configured properly for your needs. All of the options in the config file have written explanations - be sure to read them carefully. Some of them can be a little bit vague, though.
+
+To comment out a line (prevent the bot from reading that line), you can add a ‘#’ in front of a line. When you come to a line that you need to edit, one popular option is to comment out the original and add your new line right below it. This preserves the original line as an example. For example:
+
+ Set the nick the bot uses on IRC, and on the botnet unless you specify a
+ `copy(text: string, options: object): boolean` &mdash; tries to copy text to clipboard. Returns `true`
+ 
+# Starting the Eggdrop
+
+Phew! Now that you’ve compiled, installed, and configured Eggdrop, it’s time to start it up. Switch to the directory to which you installed the bot, cross your fingers, and type ./eggdrop -m <config> (where <config> is the name you gave to the config file). Eggdrop should start up, and the bot should appear on IRC within a few minutes. The -m option creates a new userfile for your bot, and is only needed the first time you start your Eggdrop. In future, you will only need to type ./eggdrop <config> to start the bot. Make sure you take the time to read what it tells you when you start it up!
+
+Once your bot is on IRC, it’s important that you promptly introduce yourself to the bot. Msg it the ‘hello’ command you specified in the config file, e.g. /msg <botnick> hello. This will make you the bot’s owner. Once that’s done, you need to set a password using /msg <botnick> pass <password>. You can then DCC chat to the bot.
+
+Now that your Eggdrop is on IRC and you’ve introduced yourself as owner, it’s time to learn how to use your Eggdrop!
+	
+	ffff
+	
+	
+	
+-------
+
+# Automatically restarting an Eggdrop
+
+A common question asked by users is, how can I configure Eggdrop to automatically restart should it die, such as after a reboot? To do that, we use the system’s crontab daemon to run a script (called botchk) every ten minutes that checks if the eggdrop is running. If the eggdrop is not running, the script will restart the bot, with an optional email sent to the user informing them of the action. To make this process as simple as possible, we have included a script that can automatically configure your crontab and botchk scripts for you. To set up your crontab/botchk combo:
+	
+
+
+	
+Enter the directory you installed your Eggdrop to. Most commonly, this is ~/eggdrop (also known as /home/<username>/eggdrop).
+Just humor us- run `./scripts/autobotchk` without any arguments and read the options available to you. They’re listed there for a reason!
+-
+If you don’t want to customize anything via the options listed in #2, you can start the script simply by running:
+`./scripts/autobotchk yourEggdropConfigNameHere.conf`
+
+Review the output of the script, and verify your new crontab entry by typing:
+
+	crontab -l
+	
+
+
+By default, it should create an entry that looks similar to:
+
+`0,10,20,30,40,50 * * * * /home/user/bot/scripts/YourEggdrop.botchk 2>&1`
+
+This will run the generated botchk script every ten minutes and restart your Eggdrop if it is not running during the check. Also note that if you run autobotchk from the scripts directory, you’ll have to manually specify your config file location with the -dir option. To remove a crontab entry, use crontab -e to open the crontab file in your system’s default editor and remove the crontab line.
 
 
 
 
-
-
+---------
+# FINISH HERE
 
 
 
