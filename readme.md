@@ -10,19 +10,45 @@ Make sure Tcl AND it’s dev packages are installed on your system. On Debian-ba
 It is also STRONGLY recommended to have openssl installed, to enable SSL/TLS protection:
 
 	sudo apt-get install openssl libssl-dev
+------
 
-
-
-
-
-
-
-
-download eggdrop files
+Download eggdrop files
 
 [Eggdrop 1.9.2 (tar.gz)](http://ftp.eggheads.org/pub/eggdrop/source/1.9/eggdrop-1.9.2.tar.gz) [2296Kb] – 2022-03-06
 
 
+
+detailed explanation of these steps.
+
+Download the latest stable Eggdrop release to your shell via FTP, or simply type 
+
+	wget geteggdrop.com -O eggdrop-1.9.2.tar.gz
+	
+From the commadline of your shell, type: 
+
+	tar zxvf eggdrop-1.9.2.tar.gz
+	cd eggdrop-1.9.2
+	./configure
+   	make config
+   	make
+  	make install
+   	cd ~/eggdrop
+
+For a quick start, edit the eggdrop-basic.conf file. To take advantage of all Eggdrop’s features, we recommend using eggdrop.conf instead. It is also a good idea to rename the file to something easy to remember and specific to your bot, like botnick.conf.
+Exeple:
+
+   	./eggdrop -m <config file>
+
+
+
+
+
+
+
+
+
+
+-------------------
 custom Qtile for ArchLinux
 
 After instal Qtile:
