@@ -1,1 +1,12 @@
 # Install Eggdrop step by step
+
+
+# Custom personalizate Qtile
+custom Qtile for ArchLinux
+
+After instal Qtile:
+
+	sudo pacman -S gdm kitty ----
+	
+ 
+ jp
