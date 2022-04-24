@@ -2,6 +2,7 @@
 
 
 Prerequisites
+-
 
 Make sure Tcl AND it’s dev packages are installed on your system. On Debian-based systems, this is done with:
 
@@ -13,6 +14,7 @@ It is also STRONGLY recommended to have openssl installed, to enable SSL/TLS pro
 ------
 
 Download eggdrop files
+-
 
 [Eggdrop 1.9.2 (tar.gz)](http://ftp.eggheads.org/pub/eggdrop/source/1.9/eggdrop-1.9.2.tar.gz) [2296Kb] – 2022-03-06
 
@@ -74,14 +76,12 @@ Now that your Eggdrop is on IRC and you’ve introduced yourself as owner, it’
 
 # Automatically restarting an Eggdrop
 
-A common question asked by users is, how can I configure Eggdrop to automatically restart should it die, such as after a reboot? To do that, we use the system’s crontab daemon to run a script (called botchk) every ten minutes that checks if the eggdrop is running. If the eggdrop is not running, the script will restart the bot, with an optional email sent to the user informing them of the action. To make this process as simple as possible, we have included a script that can automatically configure your crontab and botchk scripts for you. To set up your crontab/botchk combo:
-	
-
-
+A common question asked by users is, how can I configure Eggdrop to automatically restart should it die, such as after a reboot? To do that, we use the system’s crontab daemon to run a script (called botchk) every ten minutes that checks if the eggdrop is running. If the eggdrop is not running, the script will restart the bot, with an optional email sent to the user informing them of the action. To make this process as simple as possible, we have included a script that can automatically configure your crontab and botchk scripts for you. To set up your crontab/botchk combo
 	
 Enter the directory you installed your Eggdrop to. Most commonly, this is ~/eggdrop (also known as /home/<username>/eggdrop).
 Just humor us- run `./scripts/autobotchk` without any arguments and read the options available to you. They’re listed there for a reason!
 -
+	
 If you don’t want to customize anything via the options listed in #2, you can start the script simply by running:
 `./scripts/autobotchk yourEggdropConfigNameHere.conf`
 
